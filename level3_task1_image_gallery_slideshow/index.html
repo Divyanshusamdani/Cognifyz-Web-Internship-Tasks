@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 3 Task 1 - Image Gallery & Slideshow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #673AB7;
+            color: white;
+            padding: 15px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px;
+        }
+        .gallery img {
+            width: 150px;
+            height: 100px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        .large-image {
+            width: 90%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Image Gallery & Slideshow</h1>
+        <p>Level 3 Task 1 - Cognifyz Internship</p>
+    </header>
+
+    <!-- Large Image Display -->
+    <img id="displayImage" class="large-image" src="https://placekitten.com/500/300" alt="Display">
+
+    <!-- Image Gallery -->
+    <div class="gallery">
+        <img src="https://placekitten.com/501/300" alt="Kitten 1" onclick="showImage(this.src)">
+        <img src="https://placekitten.com/502/300" alt="Kitten 2" onclick="showImage(this.src)">
+        <img src="https://placekitten.com/503/300" alt="Kitten 3" onclick="showImage(this.src)">
+        <img src="https://placekitten.com/504/300" alt="Kitten 4" onclick="showImage(this.src)">
+    </div>
+
+    <script>
+        // Show image on click
+        function showImage(src) {
+            document.getElementById('displayImage').src = src;
+        }
+
+        // Simple slideshow
+        const slideshowImages = [
+            "https://placekitten.com/600/400",
+            "https://placekitten.com/601/400",
+            "https://placekitten.com/602/400",
+            "https://placekitten.com/603/400"
+        ];
+        let index = 0;
+        setInterval(() => {
+            document.getElementById('displayImage').src = slideshowImages[index];
+            index = (index + 1) % slideshowImages.length;
+        }, 3000);
+    </script>
+</body>
+</html>
